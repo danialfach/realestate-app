@@ -58,16 +58,16 @@ export default function Home() {
           place with ease
         </h1>
         <div className='text-gray-400 text-xs sm:text-sm'>
-          Griya Properti is the best place to find your next perfect place to
-          live.
+          Griya Properti adalah tempat terbaik untuk menemukan tempat sempurna Anda berikutnya
+          untuk menjalani hidup.
           <br />
-          We have a wide range of properties for you to choose from.
+          Kami memiliki beragam properti untuk Anda pilih.
         </div>
         <Link
           to={'/search'}
           className='text-xs sm:text-sm text-blue-800 font-bold hover:underline'
         >
-          Let's get started...
+          Mari kita mulai...
         </Link>
       </div>
 
