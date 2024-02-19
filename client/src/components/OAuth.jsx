@@ -29,7 +29,7 @@ export default function OAuth() {
       dispatch(signInSuccess(data));
       navigate('/');
     } catch (error) {
-      console.log('could not sign in with google', error);
+      console.log('tidak dapat masuk dengan google', error);
     }
   };
   return (
@@ -38,7 +38,7 @@ export default function OAuth() {
       type='button'
       className='bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95'
     >
-      Continue with google
+      Masuk dengan google
     </button>
   );
 }

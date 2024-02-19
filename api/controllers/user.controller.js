@@ -11,7 +11,7 @@ export const test = (req, res) => {
 
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.id)
-    return next(errorHandler(401, 'You can only update your own account!'));
+    return next(errorHandler(401, 'Anda hanya dapat memperbarui akun Anda sendiri!'));
   try {
     if (req.body.password) {
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
@@ -40,11 +40,11 @@ export const updateUser = async (req, res, next) => {
 
 export const deleteUser = async (req, res, next) => {
   if (req.user.id !== req.params.id)
-    return next(errorHandler(401, 'You can only delete your own account!'));
+    return next(errorHandler(401, 'Anda hanya dapat menghapus akun Anda sendiri!'));
   try {
     await User.findByIdAndDelete(req.params.id);
     res.clearCookie('access_token');
-    res.status(200).json('User has been deleted!');
+    res.status(200).json('Pengguna telah dihapus!');
   } catch (error) {
     next(error);
   }
@@ -59,7 +59,7 @@ export const getUserListings = async (req, res, next) => {
       next(error);
     }
   } else {
-    return next(errorHandler(401, 'You can only view your own listings!'));
+    return next(errorHandler(401, 'Anda hanya dapat melihat daftar Anda sendiri!'));
   }
 };
 
@@ -67,11 +67,11 @@ export const getUser = async (req, res, next) => {
   try {
     
     const user = await User.findById(req.params.id);
-  
-    if (!user) return next(errorHandler(404, 'User not found!'));
-  
+
+    if (!user) return next(errorHandler(404, 'Pengguna tidak ditemukan!'));
+    
     const { password: pass, ...rest } = user._doc;
-  
+
     res.status(200).json(rest);
   } catch (error) {
     next(error);

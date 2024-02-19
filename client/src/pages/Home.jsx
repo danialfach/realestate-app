@@ -53,9 +53,9 @@ export default function Home() {
       {/* top */}
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
-          Find your next <span className='text-slate-500'>perfect</span>
+          Temukan rumah berikutnya yang <span className='text-slate-500'>sempurna</span>
           <br />
-          place with ease
+          dengan mudah disini
         </h1>
         <div className='text-gray-400 text-xs sm:text-sm'>
           Griya Properti adalah tempat terbaik untuk menemukan tempat sempurna Anda berikutnya
@@ -95,8 +95,8 @@ export default function Home() {
         {offerListings && offerListings.length > 0 && (
           <div className=''>
             <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent offers</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>Show more offers</Link>
+              <h2 className='text-2xl font-semibold text-slate-600'>Penawaran terbaru</h2>
+              <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>Tampilkan lebih banyak penawaran</Link>
             </div>
             <div className='flex flex-wrap gap-4'>
               {offerListings.map((listing) => (
@@ -108,8 +108,8 @@ export default function Home() {
         {rentListings && rentListings.length > 0 && (
           <div className=''>
             <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent places for rent</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Show more places for rent</Link>
+              <h2 className='text-2xl font-semibold text-slate-600'>Disewakan tempat terbaru</h2>
+              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Tampilkan lebih banyak tempat untuk disewa</Link>
             </div>
             <div className='flex flex-wrap gap-4'>
               {rentListings.map((listing) => (
@@ -121,8 +121,8 @@ export default function Home() {
         {saleListings && saleListings.length > 0 && (
           <div className=''>
             <div className='my-3'>
-              <h2 className='text-2xl font-semibold text-slate-600'>Recent places for sale</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Show more places for sale</Link>
+              <h2 className='text-2xl font-semibold text-slate-600'>Dijual tempat terkini</h2>
+              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Tampilkan lebih banyak tempat untuk dijual</Link>
             </div>
             <div className='flex flex-wrap gap-4'>
               {saleListings.map((listing) => (

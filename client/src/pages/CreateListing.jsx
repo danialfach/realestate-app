@@ -51,11 +51,11 @@ export default function CreateListing() {
           setUploading(false);
         })
         .catch(() => {
-          setImageUploadError("Image upload failed (2 mb max per image)");
+          setImageUploadError("Upload gambar gagal! (2 mb max per gambar)");
           setUploading(false);
         });
     } else {
-      setImageUploadError("You can only upload 6 images per listing");
+      setImageUploadError("Kamu hanya bisa upload 6 gambar per daftar");
       setUploading(false);
     }
   };
@@ -71,7 +71,7 @@ export default function CreateListing() {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(`Upload is ${progress}% done`);
+          console.log(`Upload ${progress}% berhasil`);
         },
         (error) => {
           reject(error);
@@ -153,16 +153,17 @@ export default function CreateListing() {
       setLoading(false);
     }
   };
+
   return (
     <main className="p-3 max-w-4xl mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">
-        Create a Listing
+        Buat Daftar
       </h1>
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
         <div className="flex flex-col gap-4 flex-1">
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Judul"
             className="border p-3 rounded-lg"
             id="name"
             maxLength="62"
@@ -173,7 +174,7 @@ export default function CreateListing() {
           />
           <textarea
             type="text"
-            placeholder="Description"
+            placeholder="Deskripsi"
             className="border p-3 rounded-lg"
             id="description"
             required
@@ -182,7 +183,7 @@ export default function CreateListing() {
           />
           <input
             type="text"
-            placeholder="Address"
+            placeholder="Domisili"
             className="border p-3 rounded-lg"
             id="address"
             required
@@ -198,7 +199,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === "sale"}
               />
-              <span>Sell</span>
+              <span>Jual</span>
             </div>
             <div className="flex gap-2">
               <input
@@ -208,7 +209,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.type === "rent"}
               />
-              <span>Rent</span>
+              <span>Sewa</span>
             </div>
             <div className="flex gap-2">
               <input
@@ -228,7 +229,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.furnished}
               />
-              <span>Furnished</span>
+              <span>Furnitur Lengkap</span>
             </div>
             <div className="flex gap-2">
               <input
@@ -238,7 +239,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 checked={formData.offer}
               />
-              <span>Offer</span>
+              <span>Penawaran</span>
             </div>
           </div>
           <div className="flex flex-wrap gap-6">
@@ -253,7 +254,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 value={formData.bedrooms}
               />
-              <p>Beds</p>
+              <p>Kamar Tidur</p>
             </div>
             <div className="flex items-center gap-2">
               <input
@@ -266,23 +267,23 @@ export default function CreateListing() {
                 onChange={handleChange}
                 value={formData.bathrooms}
               />
-              <p>Baths</p>
+              <p>Kamar Mandi</p>
             </div>
             <div className="flex items-center gap-2">
               <input
                 type="number"
                 id="regularPrice"
                 min="50"
-                max="10000000"
+                max="1000000000000"
                 required
                 className="p-3 border border-gray-300 rounded-lg"
                 onChange={handleChange}
                 value={formData.regularPrice}
               />
               <div className="flex flex-col items-center">
-                <p>Regular price</p>
+                <p>Harga normal</p>
                 {formData.type === "rent" && (
-                  <span className="text-xs">(Rp / month)</span>
+                  <span className="text-xs">(Rp / bulan)</span>
                 )}
               </div>
             </div>
@@ -292,17 +293,17 @@ export default function CreateListing() {
                   type="number"
                   id="discountPrice"
                   min="0"
-                  max="10000000"
+                  max="1000000000000"
                   required
                   className="p-3 border border-gray-300 rounded-lg"
                   onChange={handleChange}
                   value={formData.discountPrice}
                 />
                 <div className="flex flex-col items-center">
-                  <p>Discounted price</p>
+                  <p> % / Harga setelah diskon</p>
 
                   {formData.type === "rent" && (
-                    <span className="text-xs">(Rp / month)</span>
+                    <span className="text-xs">(Rp / bulan)</span>
                   )}
                 </div>
               </div>
@@ -311,9 +312,9 @@ export default function CreateListing() {
         </div>
         <div className="flex flex-col flex-1 gap-4">
           <p className="font-semibold">
-            Images:
+            Gambar:
             <span className="font-normal text-gray-600 ml-2">
-              The first image will be the cover (max 6)
+              Gambar pertama akan menjadi sampul (maks 6)
             </span>
           </p>
           <div className="flex gap-4">
@@ -353,7 +354,7 @@ export default function CreateListing() {
                   onClick={() => handleRemoveImage(index)}
                   className="p-3 text-red-700 rounded-lg uppercase hover:opacity-75"
                 >
-                  Delete
+                  Hapus
                 </button>
               </div>
             ))}
@@ -361,7 +362,7 @@ export default function CreateListing() {
             disabled={loading || uploading}
             className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
-            {loading ? "Creating..." : "Create listing"}
+            {loading ? "Membuat..." : "Membuat daftar"}
           </button>
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>

@@ -38,7 +38,7 @@ export default function Header() {
         >
           <input
             type='text'
-            placeholder='Search...'
+            placeholder='Cari...'
             className='bg-transparent focus:outline-none w-24 sm:w-64'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -55,7 +55,7 @@ export default function Header() {
           </Link>
           <Link to='/about'>
             <li className='hidden sm:inline text-slate-200 hover:underline'>
-              About
+              Tentang
             </li>
           </Link>
           <Link to='/profile'>
@@ -66,7 +66,7 @@ export default function Header() {
                 alt='profile'
               />
             ) : (
-              <li className=' text-slate-200 hover:underline'> Sign in</li>
+              <li className=' text-slate-200 hover:underline'> Masuk</li>
             )}
           </Link>
         </ul>

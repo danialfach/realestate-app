@@ -133,19 +133,19 @@ export default function Search() {
         <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
           <div className='flex items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
-              Search Term:
+              Pencarian:
             </label>
             <input
               type='text'
               id='searchTerm'
-              placeholder='Search...'
+              placeholder='Cari...'
               className='border rounded-lg p-3 w-full'
               value={sidebardata.searchTerm}
               onChange={handleChange}
             />
           </div>
           <div className='flex gap-2 flex-wrap items-center'>
-            <label className='font-semibold'>Type:</label>
+            <label className='font-semibold'>Tipe:</label>
             <div className='flex gap-2'>
               <input
                 type='checkbox'
@@ -154,7 +154,7 @@ export default function Search() {
                 onChange={handleChange}
                 checked={sidebardata.type === 'all'}
               />
-              <span>Rent & Sale</span>
+              <span>Disewakan & Dijual</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -164,7 +164,7 @@ export default function Search() {
                 onChange={handleChange}
                 checked={sidebardata.type === 'rent'}
               />
-              <span>Rent</span>
+              <span>Disewakan</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -174,7 +174,7 @@ export default function Search() {
                 onChange={handleChange}
                 checked={sidebardata.type === 'sale'}
               />
-              <span>Sale</span>
+              <span>Dijual</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -184,11 +184,11 @@ export default function Search() {
                 onChange={handleChange}
                 checked={sidebardata.offer}
               />
-              <span>Offer</span>
+              <span>Penawaran</span>
             </div>
           </div>
           <div className='flex gap-2 flex-wrap items-center'>
-            <label className='font-semibold'>Amenities:</label>
+            <label className='font-semibold'>Fasilitas:</label>
             <div className='flex gap-2'>
               <input
                 type='checkbox'
@@ -197,7 +197,7 @@ export default function Search() {
                 onChange={handleChange}
                 checked={sidebardata.parking}
               />
-              <span>Parking</span>
+              <span>Tempat Parkir</span>
             </div>
             <div className='flex gap-2'>
               <input
@@ -207,35 +207,35 @@ export default function Search() {
                 onChange={handleChange}
                 checked={sidebardata.furnished}
               />
-              <span>Furnished</span>
+              <span>Furnitur Lengkap</span>
             </div>
           </div>
           <div className='flex items-center gap-2'>
-            <label className='font-semibold'>Sort:</label>
+            <label className='font-semibold'>Sortir:</label>
             <select
               onChange={handleChange}
               defaultValue={'created_at_desc'}
               id='sort_order'
               className='border rounded-lg p-3'
             >
-              <option value='regularPrice_desc'>Price high to low</option>
-              <option value='regularPrice_asc'>Price low to hight</option>
-              <option value='createdAt_desc'>Latest</option>
-              <option value='createdAt_asc'>Oldest</option>
+              <option value='regularPrice_desc'>Harga tinggi ke rendah</option>
+              <option value='regularPrice_asc'>Harga rendah ke tinggi</option>
+              <option value='createdAt_desc'>Terbaru</option>
+              <option value='createdAt_asc'>Terlama</option>
             </select>
           </div>
           <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95'>
-            Search
+            Cari
           </button>
         </form>
       </div>
       <div className='flex-1'>
         <h1 className='text-3xl font-semibold border-b p-3 text-slate-700 mt-5'>
-          Listing results:
+          Hasil daftar:
         </h1>
         <div className='p-7 flex flex-wrap gap-4'>
           {!loading && listings.length === 0 && (
-            <p className='text-xl text-slate-700'>No listing found!</p>
+            <p className='text-xl text-slate-700'>Daftar tidak ditemukan!</p>
           )}
           {loading && (
             <p className='text-xl text-slate-700 text-center w-full'>
@@ -254,7 +254,7 @@ export default function Search() {
               onClick={onShowMoreClick}
               className='text-green-700 hover:underline p-7 text-center w-full'
             >
-              Show more
+              Tampilkan lebih banyak
             </button>
           )}
         </div>
